@@ -1,0 +1,57 @@
+/* * Custom Styles for the Counter App 
+ * This file handles non-utility CSS (font, background, custom button effects).
+ */
+
+
+/* Use Inter font and set base background */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #e5e7eb;
+    /* Light gray background */
+}
+
+
+/* Custom styles for button interactivity and shadow */
+
+.counter-button {
+    /* Smooth transition for hover/active states */
+    transition: all 0.15s ease;
+    /* Initial shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Hover effect: lift and show a deeper shadow */
+
+.counter-button:hover:not(:disabled) {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+
+/* Active/Click state feedback: press down */
+
+.counter-button:active:not(:disabled) {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Disabled state for decrement button when count is 0 */
+
+.decrement:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    /* Override transform properties to keep it flat */
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+
+/* Ensures the number doesn't jump width when changing digits (e.g., 9 to 10) */
+
+#count-display {
+    font-variant-numeric: tabular-nums;
+}
